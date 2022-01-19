@@ -158,3 +158,5 @@ plt.ylabel('loss, val_loss')
 plt.legend(['train loss', 'val_loss'])
 plt.show()
 '''
+
+print('small')
