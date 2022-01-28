@@ -68,7 +68,7 @@ okt=Okt()
 clean_train_text=[]
 clean_test_text=[]
 
-#시간이 많이 걸립니다.
+#시간이 많이 걸림
 for text in tqdm.tqdm(train['과제명']):
     try:
         clean_train_text.append(preprocessing(text, okt, remove_stopwords=True, stop_words=stop_words))
@@ -83,11 +83,11 @@ for text in tqdm.tqdm(test['과제명']):
 
 from sklearn.feature_extraction.text import CountVectorizer
 
-#tokenizer 인자에는 list를 받아서 그대로 내보내는 함수를 넣어줍니다. 또한 소문자화를 하지 않도록 설정해야 에러가 나지 않습니다.
+#tokenizer 인자에 list를 받아서 그대로 내보내는 함수를 넣어줌. 소문자화를 하지 않도록 설정해야 에러 x
 vectorizer = CountVectorizer(tokenizer = lambda x: x, lowercase=False)
 train_features=vectorizer.fit_transform(clean_train_text)
 test_features=vectorizer.transform(clean_test_text)
-#test데이터에 fit_transform을 할 경우 data leakage에 해당합니다
+#test데이터에 fit_transform을 할 경우 data leakage에 해당
 
 
 
@@ -96,7 +96,6 @@ test_features=vectorizer.transform(clean_test_text)
 
 # 2. 모델
 
-#훈련 데이터 셋과 검증 데이터 셋으로 분리
 TEST_SIZE=0.2
 RANDOM_SEED=42
 
