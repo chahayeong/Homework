@@ -35,14 +35,14 @@ data.iloc[:, 1:] = data.iloc[:, 1:] / norm
 device = torch.device("cuda:0") # GPU 사용
 target_n = 21 # 맞춰야하는 품목/품종의 수
 learning_rate = 5e-4 # 학습률
-BATCH_SIZE = 128 # 배치사이즈
-EPOCHS = 50 # 총 eopochs
+BATCH_SIZE = 128 # 배치사이즈 [64,32,256]
+EPOCHS = 50 # 총 eopochs [100,1000,258,300,10,80,60,48]
 teacher_forcing = False # 교사강요 설정
-n_layers = 3 # rnn레이어 층
+n_layers = 3 # rnn레이어 층 [5,6,1,2]
 dropout = 0.2 # 드롭아웃
 window_size = 28 # 인코더 시퀀스 길이
 future_size = 28 # 디코더 시퀀스 길이
-hidden_dim = 64 # rnn 히든차원
+hidden_dim = 64 # rnn 히든차원 [64,128,32,16]
 save_path = f'./models/best_model.pt' # 모델 저장 경로
 
 x_data = []
@@ -295,9 +295,6 @@ for date in public_date_list:
 
 submission.to_csv('dacon_baseline_28.csv', index=False)
 
-'''
-9
-'''
 
 
 
